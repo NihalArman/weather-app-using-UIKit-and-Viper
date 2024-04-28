@@ -12,15 +12,17 @@ protocol HomePagePresenterProtocol {
     var router: HomePageRouterProtocol? { get set }
     //Reference to the Interator
     var interactor: HomePageInteractorProtocol? { get set }
-    //Reference to the Presenter
-    var presenter: HomePagePresenterProtocol? { get set }
     //reference to the View Controller
     var viewController: HomePageViewControllerProtocol? { get set }
     
     func didFetchWeatherData(with result: Result<[WeatherData], Error>)
 }
 
-class HomePagePresenter {
+class HomePagePresenter: HomePagePresenterProtocol {
+    var router: HomePageRouterProtocol?
+    var interactor: HomePageInteractorProtocol?
+    var viewController: HomePageViewControllerProtocol?
+    
     func didFetchWeatherData(with result: Result<[WeatherData], Error>) {
         
     }

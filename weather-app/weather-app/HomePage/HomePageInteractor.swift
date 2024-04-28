@@ -14,7 +14,7 @@ protocol HomePageInteractorProtocol {
     func getWeatherData()
 }
 
-class HomePageInteractor {
+class HomePageInteractor: HomePageInteractorProtocol {
     var presenter: HomePagePresenterProtocol?
     
     func getWeatherData() {
