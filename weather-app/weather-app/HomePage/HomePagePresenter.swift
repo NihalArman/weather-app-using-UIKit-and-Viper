@@ -14,8 +14,13 @@ protocol HomePagePresenterProtocol {
     var interactor: HomePageInteractor? { get set }
     //Reference to the Presenter
     var presenter: HomePagePresenter? { get set }
+    
+    //Interactor will fetch the weather data
+    func didFetchWeatherData(with result: Result<[WeatherData], Error>)
 }
 
 class HomePagePresenter {
-    
+    func didFetchWeatherData(with result: Result<[WeatherData], Error>) {
+        
+    }
 }
