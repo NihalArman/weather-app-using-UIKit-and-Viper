@@ -18,7 +18,7 @@
 		837B71162BDEA12C00EA6BAC /* HomePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B71152BDEA12C00EA6BAC /* HomePageInteractor.swift */; };
 		837B71182BDEA13D00EA6BAC /* HomePageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B71172BDEA13D00EA6BAC /* HomePageRouter.swift */; };
 		837B711A2BDEA14C00EA6BAC /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B71192BDEA14C00EA6BAC /* HomePageViewController.swift */; };
-		837B711C2BDEA7E000EA6BAC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B711B2BDEA7E000EA6BAC /* Model.swift */; };
+		837B711C2BDEA7E000EA6BAC /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B711B2BDEA7E000EA6BAC /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		837B71152BDEA12C00EA6BAC /* HomePageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageInteractor.swift; sourceTree = "<group>"; };
 		837B71172BDEA13D00EA6BAC /* HomePageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageRouter.swift; sourceTree = "<group>"; };
 		837B71192BDEA14C00EA6BAC /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		837B711B2BDEA7E000EA6BAC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		837B711B2BDEA7E000EA6BAC /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +147,7 @@
 				837B71152BDEA12C00EA6BAC /* HomePageInteractor.swift */,
 				837B71172BDEA13D00EA6BAC /* HomePageRouter.swift */,
 				837B71192BDEA14C00EA6BAC /* HomePageViewController.swift */,
-				837B711B2BDEA7E000EA6BAC /* Model.swift */,
+				837B711B2BDEA7E000EA6BAC /* Entity.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837B711C2BDEA7E000EA6BAC /* Model.swift in Sources */,
+				837B711C2BDEA7E000EA6BAC /* Entity.swift in Sources */,
 				837B71162BDEA12C00EA6BAC /* HomePageInteractor.swift in Sources */,
 				837B70EA2BDE9E2500EA6BAC /* ContentView.swift in Sources */,
 				837B711A2BDEA14C00EA6BAC /* HomePageViewController.swift in Sources */,
