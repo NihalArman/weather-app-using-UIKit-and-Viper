@@ -24,11 +24,11 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol {
     }
     
     func updateWeatherData(with weatherData: [WeatherData]) {
-        <#code#>
+        
     }
     
     func updateWeatherData(with error: String) {
-        <#code#>
+        
     }
     
     

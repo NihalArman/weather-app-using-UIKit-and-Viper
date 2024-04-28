@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+typealias LandingPage = HomePageViewControllerProtocol & UIViewController
 
 protocol HomePageRouterProtocol {
     static func startHomePage() -> HomePageRouterProtocol
 }
 
 class HomePageRouter: HomePageRouterProtocol {
+    var landingPage: LandingPage?
+    
     static func startHomePage() -> any HomePageRouterProtocol {
         let router = HomePageRouter()
         
@@ -27,6 +32,8 @@ class HomePageRouter: HomePageRouterProtocol {
         presenter.router = router
         presenter.interactor = interactor
         presenter.viewController = viewController
+        
+        router.landingPage = viewController as? LandingPage
         
         return router
     }
