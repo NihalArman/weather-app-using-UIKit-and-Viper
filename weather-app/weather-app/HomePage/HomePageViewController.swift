@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+protocol HomePageViewControllerProtocol {
+    
+}
+
+class HomePageViewController: UIViewController, HomePageViewControllerProtocol {
+    
+}

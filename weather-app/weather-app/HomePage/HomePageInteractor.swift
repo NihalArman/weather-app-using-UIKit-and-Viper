@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol HomePageInteractorProtocol {
+    
+}
+
+class HomePageInteractor {
+    
+}

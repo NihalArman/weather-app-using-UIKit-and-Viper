@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+protocol HomePagePresenterProtocol {
+    //Reference to the Router
+    var router: HomePageRouter? { get set }
+    //Reference to the Interator
+    var interactor: HomePageInteractor? { get set }
+    //Reference to the Presenter
+    var presenter: HomePagePresenter? { get set }
+}
+
+class HomePagePresenter {
+    
+}

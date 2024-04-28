@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol HomePageRouterProtocol {
+    static func startHomePage() -> HomePageRouterProtocol
+}
+
+class HomePageRouter: HomePageRouterProtocol {
+    static func startHomePage() -> any HomePageRouterProtocol {
+        let router = HomePageRouter()
+        
+        return router
+    }
+}
