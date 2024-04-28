@@ -8,9 +8,15 @@
 import Foundation
 
 protocol HomePageInteractorProtocol {
+    var presenter: HomePagePresenterProtocol? { get set }
     
+    func getWeatherData()
 }
 
 class HomePageInteractor {
+    var presenter: HomePagePresenterProtocol?
     
+    func getWeatherData() {
+        
+    }
 }
