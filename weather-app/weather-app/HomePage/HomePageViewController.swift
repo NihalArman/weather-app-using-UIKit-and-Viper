@@ -9,9 +9,27 @@ import Foundation
 import UIKit
 
 protocol HomePageViewControllerProtocol {
+    //reference to the presenter
+    var presenter: HomePagePresenterProtocol? { get set }
     
+    func updateWeatherData(with weatherData: [WeatherData])
+    func updateWeatherData(with error: String)
 }
 
 class HomePageViewController: UIViewController, HomePageViewControllerProtocol {
+    var presenter: (any HomePagePresenterProtocol)?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    func updateWeatherData(with weatherData: [WeatherData]) {
+        <#code#>
+    }
+    
+    func updateWeatherData(with error: String) {
+        <#code#>
+    }
+    
     
 }
