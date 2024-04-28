@@ -9,11 +9,11 @@ import Foundation
 
 protocol HomePagePresenterProtocol {
     //Reference to the Router
-    var router: HomePageRouter? { get set }
+    var router: HomePageRouterProtocol? { get set }
     //Reference to the Interator
-    var interactor: HomePageInteractor? { get set }
+    var interactor: HomePageInteractorProtocol? { get set }
     //Reference to the Presenter
-    var presenter: HomePagePresenter? { get set }
+    var presenter: HomePagePresenterProtocol? { get set }
     
     func didFetchWeatherData(with result: Result<[WeatherData], Error>)
 }
