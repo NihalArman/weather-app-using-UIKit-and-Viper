@@ -21,6 +21,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBlue
     }
     
     func updateWeatherData(with weatherData: [WeatherData]) {

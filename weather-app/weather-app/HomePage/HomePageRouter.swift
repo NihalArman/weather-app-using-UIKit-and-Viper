@@ -11,6 +11,8 @@ import UIKit
 typealias LandingPage = HomePageViewControllerProtocol & UIViewController
 
 protocol HomePageRouterProtocol {
+    var landingPage: LandingPage? { get set }
+    
     static func startHomePage() -> HomePageRouterProtocol
 }
 
