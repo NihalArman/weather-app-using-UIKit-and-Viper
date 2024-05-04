@@ -16,28 +16,42 @@ protocol HomePageViewControllerProtocol {
     func updateWeatherData(with error: String)
 }
 
-class HomePageViewController: UIViewController, HomePageViewControllerProtocol {
+class HomePageViewController: UIViewController, HomePageViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
+    
     var presenter: HomePagePresenterProtocol?
     var weatherData: WeatherData = WeatherData()
+    
+    var tableView: UITableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label.center = CGPoint(x: 160, y: 285)
-        label.text = "something"
-        label.textAlignment = .center
-        view.addSubview(label)
-        
-        print(weatherData.name)
+        tableView.frame = CGRectMake(0, 50, 320, 200)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
     }
     
     func updateWeatherData(with weatherData: WeatherData) {
-        self.weatherData = weatherData
-        print(weatherData.name!)
+        DispatchQueue.main.async {
+            self.weatherData = weatherData
+            self.tableView.reloadData()
+        }
     }
     
     func updateWeatherData(with error: String) {
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell()
+        cell.textLabel?.text = "something"
+        print("printing from table view: ")
+        print(weatherData.name)
+        return cell
     }
 }

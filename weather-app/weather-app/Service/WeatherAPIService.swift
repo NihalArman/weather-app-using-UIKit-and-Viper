@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherAPIService {
     func fetchWeatherDataFromAPI(completion: @escaping ((Error?, Bool, WeatherData?) -> Void)){
-        guard let weatherAPIUrl = URL(string: "API-KEY") else {
+        guard let weatherAPIUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=joensuu&appid=32e06b8145a6663c8b586aabd45778a1") else {
             print("Error in the URL")
             completion(nil, false, nil)
             return
