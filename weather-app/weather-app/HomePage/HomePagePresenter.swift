@@ -15,15 +15,24 @@ protocol HomePagePresenterProtocol {
     //reference to the View Controller
     var viewController: HomePageViewControllerProtocol? { get set }
     
-    func didFetchWeatherData(with result: Result<[WeatherData], Error>)
+    func didFetchWeatherData(with result: Result<WeatherData, Error>)
 }
 
 class HomePagePresenter: HomePagePresenterProtocol {
     var router: HomePageRouterProtocol?
-    var interactor: HomePageInteractorProtocol?
+    var interactor: HomePageInteractorProtocol? {
+        didSet {
+            interactor?.getWeatherData()
+        }
+    }
     var viewController: HomePageViewControllerProtocol?
     
-    func didFetchWeatherData(with result: Result<[WeatherData], Error>) {
-        
+    func didFetchWeatherData(with result: Result<WeatherData, Error>) {
+        switch result {
+        case .success(let data):
+            viewController?.updateWeatherData(with: data)
+        case .failure:
+            viewController?.updateWeatherData(with: "something went wrong")
+        }
     }
 }
