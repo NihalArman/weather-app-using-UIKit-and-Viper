@@ -44,14 +44,25 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let rowsAvailable = getRowData().count
+        return rowsAvailable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell()
-        cell.textLabel?.text = "something"
-        print("printing from table view: ")
-        print(weatherData.name)
+        
+        let rowToPresent: [String] = getRowData()
+        
+        cell.textLabel?.text = rowToPresent[indexPath.row]
         return cell
+    }
+    
+    func getRowData() -> [String] {
+        var cityName: String = weatherData.name ?? "City not found"
+        var temparature: String = String(format: "%.1f", weatherData.main?.temp ?? "Temparature not available")
+        var humidity: String = String(format: "%.1f", weatherData.main?.humidity ?? "Humidity not available")
+        var rowData: [String] = [cityName, temparature, humidity]
+        
+        return rowData
     }
 }
