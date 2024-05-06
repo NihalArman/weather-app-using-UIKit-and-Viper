@@ -59,8 +59,13 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     
     func getRowData() -> [String] {
         var cityName: String = weatherData.name ?? "City not found"
-        var temparature: String = String(format: "%.1f", weatherData.main?.temp ?? "Temparature not available")
+        
+        // Temperature data from API reponse comes as Kelvin. Converted into Celsius here
+        let temparatureInCelsius: Double = (weatherData.main?.temp ?? 0.0) - 273.15
+        var temparature: String = String(format: "%.1f", temparatureInCelsius)
+        
         var humidity: String = String(format: "%.1f", weatherData.main?.humidity ?? "Humidity not available")
+        
         var rowData: [String] = [cityName, temparature, humidity]
         
         return rowData
