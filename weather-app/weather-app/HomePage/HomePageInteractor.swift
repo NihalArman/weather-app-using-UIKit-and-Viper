@@ -10,17 +10,15 @@ import Foundation
 protocol HomePageInteractorProtocol {
     //reference to the presenter
     var presenter: HomePagePresenterProtocol? { get set }
-    var weatherService: WeatherAPIService { get set }
-    
     func getWeatherData()
 }
 
 class HomePageInteractor: HomePageInteractorProtocol {
     var presenter: HomePagePresenterProtocol?
-    var weatherService: WeatherAPIService
-    
-    init() {
-        self.weatherService = WeatherAPIService()
+    var weatherService: WeatherAPIServiceProtocol
+
+    init(weatherService: WeatherAPIServiceProtocol = URLSession.shared) {
+        self.weatherService = weatherService
     }
     
     func getWeatherData() {
