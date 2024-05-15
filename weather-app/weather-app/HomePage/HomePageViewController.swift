@@ -30,7 +30,15 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         tableView.frame = CGRectMake(0, 50, 320, 200)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(tableView)
+
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
     }
     
     func updateWeatherData(with weatherData: WeatherData) {
