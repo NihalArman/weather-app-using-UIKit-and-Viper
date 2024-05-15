@@ -21,24 +21,17 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     var presenter: HomePagePresenterProtocol?
     var weatherData: WeatherData = WeatherData()
     
-    var tableView: UITableView = UITableView()
-    
+    let tableView: UITableView = UITableView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
-        
-        tableView.frame = CGRectMake(0, 50, 320, 200)
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-
         view.addSubview(tableView)
-
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
+        activateTableViewConstraints()
     }
     
     func updateWeatherData(with weatherData: WeatherData) {
@@ -65,7 +58,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         return cell
     }
     
-    func getRowData() -> [String] {
+    private func getRowData() -> [String] {
         let cityName: String = weatherData.name ?? "City not found"
         
         // Temperature data from API reponse comes as Kelvin. Converted into Celsius here
@@ -77,5 +70,12 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         let rowData: [String] = ["City: " + cityName, "Temparature: " + temparature, "Humidity: " + humidity]
         
         return rowData
+    }
+
+    private func activateTableViewConstraints() {
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
