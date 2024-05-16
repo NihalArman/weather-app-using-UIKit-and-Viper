@@ -22,7 +22,7 @@ class HomePagePresenter: HomePagePresenterProtocol {
     var router: HomePageRouterProtocol?
     var interactor: HomePageInteractorProtocol? {
         didSet {
-            interactor?.getWeatherData()
+            interactor?.getWeatherData(city: "Joensuu")
         }
     }
     var viewController: HomePageViewControllerProtocol?

@@ -10,7 +10,7 @@ import Foundation
 protocol HomePageInteractorProtocol {
     //reference to the presenter
     var presenter: HomePagePresenterProtocol? { get set }
-    func getWeatherData()
+    func getWeatherData(city: String)
 }
 
 class HomePageInteractor: HomePageInteractorProtocol {
@@ -21,8 +21,8 @@ class HomePageInteractor: HomePageInteractorProtocol {
         self.weatherService = weatherService
     }
     
-    func getWeatherData() {
-        self.weatherService.fetchWeatherDataFromAPI(city: "rovaniemi") { error, success, data in
+    func getWeatherData(city: String) {
+        self.weatherService.fetchWeatherDataFromAPI(city: city) { error, success, data in
             if let error = error {
                 self.presenter?.didFetchWeatherData(with: .failure(error))
                 return
