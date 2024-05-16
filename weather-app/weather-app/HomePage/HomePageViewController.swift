@@ -28,6 +28,8 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         super.viewDidLoad()
         view.backgroundColor = .clear
 
+        self.navigationItem.title = "Weather"
+
         view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,13 +57,23 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell()
-        
+        cell.accessoryType = .detailButton
+
         let rowToPresent: [String] = getRowData()
         
         cell.textLabel?.text = rowToPresent[indexPath.row]
         return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 0) {
+            self.tableView.backgroundColor = .red
+        }
+        else if (indexPath.row == 1) {
+            self.tableView.backgroundColor = .yellow
+        }
+    }
+
     private func getRowData() -> [String] {
         let cityName: String = weatherData.name ?? "City not found"
         
@@ -72,7 +84,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         let humidity: String = String(format: "%.1f", weatherData.main?.humidity ?? "Humidity not available")
         
         let rowData: [String] = ["City: " + cityName, "Temparature: " + temparature, "Humidity: " + humidity]
-        
+
         return rowData
     }
 
