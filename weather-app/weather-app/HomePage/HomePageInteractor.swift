@@ -22,7 +22,7 @@ class HomePageInteractor: HomePageInteractorProtocol {
     }
     
     func getWeatherData() {
-        self.weatherService.fetchWeatherDataFromAPI() { error, success, data in
+        self.weatherService.fetchWeatherDataFromAPI(city: "rovaniemi") { error, success, data in
             if let error = error {
                 self.presenter?.didFetchWeatherData(with: .failure(error))
                 return
