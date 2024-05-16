@@ -19,7 +19,7 @@ class WeatherAPIService: WeatherAPIServiceProtocol {
 
 extension URLSession: WeatherAPIServiceProtocol {
     func fetchWeatherDataFromAPI(completion: @escaping (((any Error)?, Bool, WeatherData?) -> Void)) {
-        guard let weatherAPIUrl = URL(string: Keys.OPEN_WEATHER_API_KEYS) else {
+        guard let weatherAPIUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=joensuu&appid="+Keys.OPEN_WEATHER_API_KEYS) else {
             print("Error in the URL")
             completion(nil, false, nil)
             return
