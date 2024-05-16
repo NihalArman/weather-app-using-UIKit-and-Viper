@@ -19,7 +19,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         let landingPageViewController = homePageRouter.landingPage
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = landingPageViewController
+        window.rootViewController = UINavigationController(rootViewController: landingPageViewController!) 
         self.window = window
         window.makeKeyAndVisible()
     }

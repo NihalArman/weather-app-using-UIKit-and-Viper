@@ -22,11 +22,11 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     var weatherData: WeatherData = WeatherData()
 
     let stackView: UIStackView = UIStackView()
-    let titleView: UILabel = UILabel()
     let tableView: UITableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Weather Data"
         view.backgroundColor = .clear
 
         view.addSubview(stackView)
@@ -34,16 +34,9 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         activateStackViewConstraints()
 
-        titleView.text = "Weather Data"
-        titleView.textAlignment = .center
-        stackView.addArrangedSubview(titleView)
-
         tableView.delegate = self
         tableView.dataSource = self
         stackView.addArrangedSubview(tableView)
-
-
-
     }
     
     func updateWeatherData(with weatherData: WeatherData) {
@@ -86,7 +79,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
 
     private func activateStackViewConstraints() {
         stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
