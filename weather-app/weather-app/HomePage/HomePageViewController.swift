@@ -26,7 +26,6 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Weather Data"
         view.backgroundColor = .clear
 
         view.addSubview(stackView)
