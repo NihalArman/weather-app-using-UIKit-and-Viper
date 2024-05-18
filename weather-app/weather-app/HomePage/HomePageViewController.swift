@@ -57,10 +57,10 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell()
-        cell.accessoryType = .detailButton
 
         let rowToPresent: [String] = getRowData()
-        
+
+        cell.imageView?.image = UIImage(systemName: "globe.europe.africa.fill")
         cell.textLabel?.text = rowToPresent[indexPath.row]
         return cell
     }
