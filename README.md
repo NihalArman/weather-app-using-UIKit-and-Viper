@@ -1,2 +1,2 @@
 # weather-app
-Basic weather app using viper architechture
+Basic weather app using UIKit & viper architechture
