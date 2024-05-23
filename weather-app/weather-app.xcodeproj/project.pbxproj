@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8302496A2BF287C900CF3199 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830249692BF287C900CF3199 /* SecretKeys.swift */; };
 		837B70E82BDE9E2500EA6BAC /* weather_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B70E72BDE9E2500EA6BAC /* weather_appApp.swift */; };
 		837B70EA2BDE9E2500EA6BAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B70E92BDE9E2500EA6BAC /* ContentView.swift */; };
 		837B70EC2BDE9E2600EA6BAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837B70EB2BDE9E2600EA6BAC /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830249692BF287C900CF3199 /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		837B70E42BDE9E2500EA6BAC /* weather-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		837B70E72BDE9E2500EA6BAC /* weather_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather_appApp.swift; sourceTree = "<group>"; };
 		837B70E92BDE9E2500EA6BAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				837B70ED2BDE9E2600EA6BAC /* weather_app.entitlements */,
 				837B70EE2BDE9E2600EA6BAC /* Preview Content */,
 				839A64C52BE009C4002DBA78 /* AppDelegate.swift */,
+				830249692BF287C900CF3199 /* SecretKeys.swift */,
 				839A64C72BE015B8002DBA78 /* SceneDelegate.swift */,
 			);
 			path = "weather-app";
@@ -309,6 +312,7 @@
 				837B70E82BDE9E2500EA6BAC /* weather_appApp.swift in Sources */,
 				837B71182BDEA13D00EA6BAC /* HomePageRouter.swift in Sources */,
 				837B71142BDEA11800EA6BAC /* HomePagePresenter.swift in Sources */,
+				8302496A2BF287C900CF3199 /* SecretKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
