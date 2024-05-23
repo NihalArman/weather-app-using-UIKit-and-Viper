@@ -16,7 +16,7 @@ protocol HomePageInteractorProtocol {
 class HomePageInteractor: HomePageInteractorProtocol {
     var presenter: HomePagePresenterProtocol?
     var weatherService: WeatherAPIServiceProtocol
-    var cities: [String] = ["Helsinki"]
+    var cities: [String] = ["Helsinki", "Tampere", "Oulu", "Joensuu", "Kuopio", "Rovaniemi", "Vaasa", "Jyväskylä"]
 
     init(weatherService: WeatherAPIServiceProtocol = URLSession.shared) {
         self.weatherService = weatherService

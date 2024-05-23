@@ -11,7 +11,7 @@ import UIKit
 protocol HomePageViewControllerProtocol {
     //reference to the presenter
     var presenter: HomePagePresenterProtocol? { get set }
-    var weatherData: WeatherData { get set }
+    var weatherData: [WeatherData] { get set }
     func updateWeatherData(with weatherData: WeatherData)
     func updateWeatherData(with error: String)
 }
@@ -19,7 +19,7 @@ protocol HomePageViewControllerProtocol {
 class HomePageViewController: UIViewController, HomePageViewControllerProtocol, UITableViewDelegate, UITableViewDataSource {
     
     var presenter: HomePagePresenterProtocol?
-    var weatherData: WeatherData = WeatherData()
+    var weatherData: [WeatherData] = [WeatherData]()
 
     let stackView: UIStackView = UIStackView()
     let tableView: UITableView = UITableView()
@@ -28,7 +28,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         super.viewDidLoad()
         view.backgroundColor = .clear
 
-        self.navigationItem.title = "Weather"
+        self.navigationItem.title = "Finland Weather Data"
 
         view.addSubview(stackView)
         stackView.axis = .vertical
@@ -42,7 +42,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     
     func updateWeatherData(with weatherData: WeatherData) {
         DispatchQueue.main.async {
-            self.weatherData = weatherData
+            self.weatherData.append(weatherData)
             self.tableView.reloadData()
         }
     }
@@ -75,17 +75,18 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     }
 
     private func getRowData() -> [String] {
-        let cityName: String = weatherData.name ?? "City not found"
-        
-        // Temperature data from API reponse comes as Kelvin. Converted into Celsius here
-        let temparatureInCelsius: Double = (weatherData.main?.temp ?? 0.0) - 273.15
-        let temparature: String = String(format: "%.1f", temparatureInCelsius)
-        
-        let humidity: String = String(format: "%.1f", weatherData.main?.humidity ?? "Humidity not available")
-        
-        let rowData: [String] = ["City: " + cityName, "Temparature: " + temparature, "Humidity: " + humidity]
+        var cities: [String] = []
+        for eachCityData in weatherData {
+            let cityName: String = eachCityData.name ?? "City name not found"
+//            Temperature data from API reponse comes as Kelvin. Converted into Celsius here
+            let temparatureInCelsius: Double = (eachCityData.main?.temp ?? 0.0) - 273.15
+            let temparature: String = String(format: "%.1f", temparatureInCelsius)
 
-        return rowData
+            let cityInfo: String = cityName + " : " + temparature + "°C"
+
+            cities.append(cityInfo)
+        }
+        return cities
     }
 
     private func activateStackViewConstraints() {
