@@ -66,12 +66,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == 0) {
-            self.tableView.backgroundColor = .red
-        }
-        else if (indexPath.row == 1) {
-            self.tableView.backgroundColor = .yellow
-        }
+        presenter?.tappedForDetails()
     }
 
     private func getRowData() -> [String] {

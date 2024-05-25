@@ -12,13 +12,13 @@ typealias LandingPage = HomePageViewControllerProtocol & UIViewController
 
 protocol HomePageRouterProtocol {
     var landingPage: LandingPage? { get set }
-    
+    func goToDetailPage(from view: HomePageViewControllerProtocol)
     static func startHomePage() -> HomePageRouterProtocol
 }
 
 class HomePageRouter: HomePageRouterProtocol {
     var landingPage: LandingPage?
-    
+
     static func startHomePage() -> any HomePageRouterProtocol {
         let router = HomePageRouter()
         
@@ -38,5 +38,14 @@ class HomePageRouter: HomePageRouterProtocol {
         router.landingPage = viewController as? LandingPage
         
         return router
+    }
+
+    func goToDetailPage(from view: HomePageViewControllerProtocol) {
+        let detailPageRouter = DetailPageRouter.startDetailPage()
+        let detailPageViewController = detailPageRouter.detailPage
+
+        if let homePageView = view as? UIViewController {
+            homePageView.navigationController?.pushViewController(detailPageViewController!, animated: true)
+        }
     }
 }
