@@ -25,5 +25,9 @@ class DetailPageViewController: UIViewController, DetailPageViewControllerProtoc
         weatherDetailData = presenter!.getDetailInformation()
 
         self.navigationItem.title = self.weatherDetailData.name
+        let cityImage = UIImage(named: "helsinki")
+        let imageView = UIImageView(image: cityImage)
+        imageView.frame = CGRect(x: 0, y: 100, width: 400, height: 200)
+        self.view.addSubview(imageView)
     }
 }
