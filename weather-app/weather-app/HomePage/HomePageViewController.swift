@@ -27,17 +27,13 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-
         self.navigationItem.title = "Finland Weather Data"
-
-        view.addSubview(stackView)
-        stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        activateStackViewConstraints()
-
+        
+        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        stackView.addArrangedSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        activateTableViewConstraints()
     }
     
     func updateWeatherData(with weatherData: WeatherData) {
@@ -84,10 +80,10 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         return cities
     }
 
-    private func activateStackViewConstraints() {
-        stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    private func activateTableViewConstraints() {
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
