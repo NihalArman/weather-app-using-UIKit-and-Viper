@@ -28,6 +28,7 @@ class DetailPageViewController: UIViewController, DetailPageViewControllerProtoc
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
         activateTableViewConstraints()
     }
 
