@@ -12,7 +12,7 @@ typealias LandingPage = HomePageViewControllerProtocol & UIViewController
 
 protocol HomePageRouterProtocol {
     var landingPage: LandingPage? { get set }
-    func goToDetailPage(from view: HomePageViewControllerProtocol)
+    func goToDetailPage(weatherData: WeatherData, from view: HomePageViewControllerProtocol)
     static func startHomePage() -> HomePageRouterProtocol
 }
 
@@ -40,9 +40,10 @@ class HomePageRouter: HomePageRouterProtocol {
         return router
     }
 
-    func goToDetailPage(from view: HomePageViewControllerProtocol) {
-        let detailPageRouter = DetailPageRouter.startDetailPage()
+    func goToDetailPage(weatherData: WeatherData, from view: HomePageViewControllerProtocol) {
+        var detailPageRouter = DetailPageRouter.startDetailPage()
         let detailPageViewController = detailPageRouter.detailPage
+        detailPageRouter.weatherDetailData = weatherData
 
         if let homePageView = view as? UIViewController {
             homePageView.navigationController?.pushViewController(detailPageViewController!, animated: true)

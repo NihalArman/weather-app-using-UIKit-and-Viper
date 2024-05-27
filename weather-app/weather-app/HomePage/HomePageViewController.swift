@@ -51,14 +51,14 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rowsAvailable = getRowData().count
+        let rowsAvailable = getListRowData().count
         return rowsAvailable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell()
 
-        let rowToPresent: [String] = getRowData()
+        let rowToPresent: [String] = getListRowData()
 
         cell.imageView?.image = UIImage(systemName: "globe.europe.africa.fill")
         cell.textLabel?.text = rowToPresent[indexPath.row]
@@ -66,10 +66,10 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.tappedForDetails()
+        presenter?.tappedForDetails(weatherData: weatherData[indexPath.row])
     }
 
-    private func getRowData() -> [String] {
+    private func getListRowData() -> [String] {
         var cities: [String] = []
         for eachCityData in weatherData {
             let cityName: String = eachCityData.name ?? "City name not found"
@@ -84,6 +84,23 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         cities = cities.sorted()
         return cities
     }
+
+    //private func getDetailRowData() -> [String] {
+    //    var detailData: [String] = []
+//
+    //    let cityName: String
+    //    let temp: String
+    //    for eachCityData in weatherData {
+    //        cityName = eachCityData.name ?? "City name not found"
+    //
+    //        let temparatureInCelsius: Double = //(eachCityData.main?.temp ?? 0.0) - 273.15
+    //        temp = String(format: "%.1f", temparatureInCelsius)
+    //    }
+    //    detailData = [cityName, temp, ]
+    //    detailData = detailData.sorted()
+//
+    //    return detailData
+    //}
 
     private func activateStackViewConstraints() {
         stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

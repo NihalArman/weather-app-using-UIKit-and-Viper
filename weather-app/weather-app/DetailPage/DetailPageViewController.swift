@@ -16,9 +16,14 @@ class DetailPageViewController: UIViewController, DetailPageViewControllerProtoc
 
     var presenter: DetailPagePresenterProtocol?
 
+    var weatherDetailData: WeatherData = WeatherData()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
-        self.navigationItem.title = "Detail information"
+
+        weatherDetailData = presenter!.getDetailInformation()
+
+        self.navigationItem.title = self.weatherDetailData.name
     }
 }

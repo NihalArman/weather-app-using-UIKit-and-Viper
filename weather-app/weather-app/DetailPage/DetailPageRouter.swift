@@ -12,12 +12,14 @@ typealias DetailPage = DetailPageViewControllerProtocol & UIViewController
 
 protocol DetailPageRouterProtocol {
     var detailPage: DetailPage? { get set }
+    var weatherDetailData: WeatherData { get set }
 
     static func startDetailPage() -> DetailPageRouterProtocol
 }
 
 class DetailPageRouter: DetailPageRouterProtocol {
     var detailPage: DetailPage?
+    var weatherDetailData = WeatherData()
 
     static func startDetailPage() -> any DetailPageRouterProtocol {
         let router = DetailPageRouter()

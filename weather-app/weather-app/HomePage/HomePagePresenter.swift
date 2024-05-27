@@ -16,7 +16,7 @@ protocol HomePagePresenterProtocol {
     var viewController: HomePageViewControllerProtocol? { get set }
     
     func didFetchWeatherData(with result: Result<WeatherData, Error>)
-    func tappedForDetails()
+    func tappedForDetails(weatherData: WeatherData)
 }
 
 class HomePagePresenter: HomePagePresenterProtocol {
@@ -37,7 +37,7 @@ class HomePagePresenter: HomePagePresenterProtocol {
         }
     }
 
-    func tappedForDetails() {
-        router?.goToDetailPage(from: viewController!)
+    func tappedForDetails(weatherData: WeatherData) {
+        router?.goToDetailPage(weatherData: weatherData, from: viewController!)
     }
 }
