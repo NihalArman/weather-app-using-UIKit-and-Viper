@@ -20,7 +20,7 @@ class DetailPageViewController: UIViewController, DetailPageViewControllerProtoc
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .clear
 
         weatherDetailData = presenter!.getDetailInformation()
 
