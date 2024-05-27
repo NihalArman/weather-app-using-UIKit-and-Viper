@@ -85,23 +85,6 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
         return cities
     }
 
-    //private func getDetailRowData() -> [String] {
-    //    var detailData: [String] = []
-//
-    //    let cityName: String
-    //    let temp: String
-    //    for eachCityData in weatherData {
-    //        cityName = eachCityData.name ?? "City name not found"
-    //
-    //        let temparatureInCelsius: Double = //(eachCityData.main?.temp ?? 0.0) - 273.15
-    //        temp = String(format: "%.1f", temparatureInCelsius)
-    //    }
-    //    detailData = [cityName, temp, ]
-    //    detailData = detailData.sorted()
-//
-    //    return detailData
-    //}
-
     private func activateStackViewConstraints() {
         stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
