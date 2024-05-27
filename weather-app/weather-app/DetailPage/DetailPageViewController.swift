@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol DetailPageViewControllerProtocol {
-    //reference to the presenter
     var presenter: DetailPagePresenterProtocol? { get set }
 }
 
@@ -19,6 +18,7 @@ class DetailPageViewController: UIViewController, DetailPageViewControllerProtoc
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .magenta
+        view.backgroundColor = .lightGray
+        self.navigationItem.title = "Detail information"
     }
 }
