@@ -81,6 +81,7 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
 
             cities.append(cityInfo)
         }
+        cities = cities.sorted()
         return cities
     }
 
