@@ -73,7 +73,7 @@ class DetailPageViewController: UIViewController, DetailPageViewControllerProtoc
         let pressure: String = "Pressure: " + String(format: "%.1f", weatherDetailData.main?.pressure ?? "Pressure not available")
 
 
-        var weatherInformations: [String] = [temparature, feelsLike, maxTemp, minTemp, humidity, pressure]
+        let weatherInformations: [String] = [temparature, feelsLike, maxTemp, minTemp, humidity, pressure]
 
         return weatherInformations
     }
