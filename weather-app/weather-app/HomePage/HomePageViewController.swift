@@ -20,8 +20,6 @@ class HomePageViewController: UIViewController, HomePageViewControllerProtocol, 
     
     var presenter: HomePagePresenterProtocol?
     var weatherData: [WeatherData] = [WeatherData]()
-
-    let stackView: UIStackView = UIStackView()
     let tableView: UITableView = UITableView()
 
     override func viewDidLoad() {
